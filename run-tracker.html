@@ -302,6 +302,13 @@
 
     <script id="penalty-data" type="application/json">
     {
+        "CrossedWires":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/b/ba/CrossedWires.webp/64px-CrossedWires.webp.png","cap":1},
+        "NoThoughts,HeadEmpty":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/0/09/NoThoughtsHeadEmpty.png/64px-NoThoughtsHeadEmpty.png","cap":1},
+        "TiredLegs":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/7/73/TiredLegs.webp/64px-TiredLegs.webp.png","cap":3},
+        "SavoryRing":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/b/b6/SavoryRing.png/64px-SavoryRing.png","cap":1},
+        "Claustrophobia":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/f/fa/Claustrophobia.webp/64px-Claustrophobia.webp.png","cap":2},
+        "BurntBatteries":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/2/2e/BurntBatteries.webp/64px-BurntBatteries.webp.png","cap":2},
+        "Overtime":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/d/d5/Overtime.webp/64px-Overtime.webp.png","cap":3},
         "Balloons4Sale":{"image":"https://static.wikitide.net/onemorenightwiki/e/e5/BalloonChildrenIcon.png","cap":1},
         "SmartestBadPlay":{"image":"https://static.wikitide.net/onemorenightwiki/b/bd/Bad%27sIcon.png","cap":1},
         "Boulder":{"image":"https://static.wikitide.net/onemorenightwiki/5/51/Ball%27sIcon.png","cap":1},
@@ -350,14 +357,7 @@
         "Wormcave'sDeception":{"image":"https://static.wikitide.net/onemorenightwiki/1/16/Wormcave%27sIcon.png","cap":1},
         "ZGuesto'sTactics":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/ZGuesto%27s_Icon.png","cap":1},
         "RedRebound":{"image":"https://static.wikitide.net/onemorenightwiki/f/ff/Zuffy%27sIcon.png","cap":1},
-        "Heatstroke":{"image":"https://static.wikitide.net/onemorenightwiki/b/bb/NewHeatIcon.png","cap":1},
-        "CrossedWires":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/b/ba/CrossedWires.webp/64px-CrossedWires.webp.png","cap":1},
-        "NoThoughts,HeadEmpty":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/0/09/NoThoughtsHeadEmpty.png/64px-NoThoughtsHeadEmpty.png","cap":1},
-        "TiredLegs":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/7/73/TiredLegs.webp/64px-TiredLegs.webp.png","cap":3},
-        "SavoryRing":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/b/b6/SavoryRing.png/64px-SavoryRing.png","cap":1},
-        "Claustrophobia":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/f/fa/Claustrophobia.webp/64px-Claustrophobia.webp.png","cap":2},
-        "BurntBatteries":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/2/2e/BurntBatteries.webp/64px-BurntBatteries.webp.png","cap":2},
-        "Overtime":{"image":"https://static.wikitide.net/onemorenightwiki/thumb/d/d5/Overtime.webp/64px-Overtime.webp.png","cap":3}
+        "Heatstroke":{"image":"https://static.wikitide.net/onemorenightwiki/b/bb/NewHeatIcon.png","cap":1}
     }
     </script>
 </head>
@@ -853,12 +853,12 @@
             const keys = Object.keys(data);
             
             // Since the JSON doesn't separate generic vs threat, we dynamically split them based on an index.
-            // The last 7 entries are considered "Generic", the rest are "Threats".
-            const splitIndex = keys.length - 7;
+            // The first 7 entries are considered "Generic", the rest are "Threats".
+            const splitIndex = 7;
 
             keys.forEach((itemId, index) => {
                 const item = data[itemId];
-                const containerId = index < splitIndex ? 'penalty-threats' : 'penalty-generics';
+                const containerId = index < splitIndex ? 'penalty-generics' : 'penalty-threats';
                 const container = document.getElementById(containerId);
                 
                 penCounts[itemId] = Math.min(item.cap, penCounts[itemId] || 0);
