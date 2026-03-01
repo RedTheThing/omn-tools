@@ -101,10 +101,18 @@
         .search-input {
             width: 100%; padding: 14px 45px 14px 18px; background: var(--card-bg);
             border: 1px solid var(--border); border-radius: 10px; color: var(--text-main);
-            font-size: 1rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+            font-size: 1rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s;
         }
         .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2); }
         
+        @keyframes flashEffect {
+            0% { box-shadow: 0 0 15px var(--accent); border-color: var(--accent); background-color: rgba(76, 175, 80, 0.15); }
+            100% { box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2); border-color: var(--accent); background-color: var(--card-bg); }
+        }
+        .search-input.flash {
+            animation: flashEffect 0.5s ease-out;
+        }
+
         .clear-search {
             position: absolute; right: 15px; background: none; border: none; color: var(--text-muted);
             font-size: 1.2rem; cursor: pointer; display: none; padding: 0; width: auto; height: auto;
@@ -278,6 +286,7 @@
         "Chef4Hire":{"image":"https://static.wikitide.net/onemorenightwiki/3/3d/NewChicken%27sIcon.png","cap":1},
         "CoralHeadache":{"image":"https://static.wikitide.net/onemorenightwiki/d/d4/DestroymanIII%27sIcon.png","cap":1},
         "MathClass":{"image":"https://static.wikitide.net/onemorenightwiki/6/69/Dry%27sIcon.png","cap":1},
+        "NotListening":{"image":"https://static.wikitide.net/onemorenightwiki/7/7e/Figure%27sIcon.png","cap":1},
         "Fox'sRushdown":{"image":"https://static.wikitide.net/onemorenightwiki/7/7a/Fox%27sIcon.png","cap":1},
         "SharpHook":{"image":"https://static.wikitide.net/onemorenightwiki/8/82/OldFox%27sIcon.png","cap":1},
         "Fran'sTenacity":{"image":"https://static.wikitide.net/onemorenightwiki/f/fc/Fran%27sIcon.png","cap":1},
@@ -328,7 +337,7 @@
         <div class="header-controls">
             <div class="top-row">
                 <div class="search-wrapper">
-                    <input type="text" id="itemSearch" class="search-input" placeholder="Search for items or cards..." oninput="filterItems()">
+                    <input type="text" id="itemSearch" class="search-input" placeholder="Search for items or cards..." oninput="filterItems()" onclick="clearItemSearch()">
                     <button class="clear-search" id="clearBtnItems" onclick="clearItemSearch()">✕</button>
                 </div>
                 
@@ -412,7 +421,7 @@
         <div class="header-controls">
             <div class="top-row">
                 <div class="search-wrapper">
-                    <input type="text" id="penSearch" class="search-input" placeholder="Search penalties..." oninput="filterPenalties()">
+                    <input type="text" id="penSearch" class="search-input" placeholder="Search penalties..." oninput="filterPenalties()" onclick="clearPenaltySearch()">
                     <button class="clear-search" id="clearBtnPenalties" onclick="clearPenaltySearch()">✕</button>
                 </div>
                 
@@ -438,7 +447,7 @@
             
             <div class="stats-bar">
                 <div class="stats-info">
-                    <span>Overall Progress</span>
+                    <span>Completion Progress</span>
                     <span id="penCompletionText">0 / 0 penalties (0%)</span>
                 </div>
                 <div class="progress-container">
@@ -639,6 +648,11 @@
 
         function clearItemSearch() {
             const searchInput = document.getElementById('itemSearch');
+            
+            searchInput.classList.remove('flash');
+            void searchInput.offsetWidth; 
+            searchInput.classList.add('flash');
+            
             searchInput.value = '';
             filterItems();
             searchInput.focus();
@@ -920,6 +934,11 @@
 
         function clearPenaltySearch() {
             const searchInput = document.getElementById('penSearch');
+            
+            searchInput.classList.remove('flash');
+            void searchInput.offsetWidth; 
+            searchInput.classList.add('flash');
+            
             searchInput.value = '';
             filterPenalties();
             searchInput.focus();
