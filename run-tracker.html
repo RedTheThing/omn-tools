@@ -232,7 +232,7 @@
         /* Tooltip Popup Box - Modified to drop down */
         .tooltip-text {
             visibility: hidden;
-            width: 250px;
+            width: 260px;
             background-color: #2a2a2a;
             color: var(--text-main);
             text-align: left;
@@ -519,7 +519,8 @@
                             • Click an item box to increment it.<br>
                             • Clicking a Maxed item box will decrease its count by 1.<br>
                             • <b>Shift + Click</b> an item box to instantly Max or Reset it.<br>
-                            • <b>Shift + Click</b> the <b>-</b> button to instantly Reset it.
+                            • <b>Shift + Click</b> the <b>-</b> button to instantly Reset it.<br>
+                            • <b>Shift + Click</b> the <b>+</b> button to instantly Max it.
                         </span>
                     </span>
                     <span id="itemCompletionText">0 / 0 items (0%)</span>
@@ -614,7 +615,8 @@
                             • Click a penalty box to increment it.<br>
                             • Clicking a Maxed penalty box will decrease its count by 1.<br>
                             • <b>Shift + Click</b> a penalty box to instantly Max or Reset it.<br>
-                            • <b>Shift + Click</b> the <b>-</b> button to instantly Reset it.
+                            • <b>Shift + Click</b> the <b>-</b> button to instantly Reset it.<br>
+                            • <b>Shift + Click</b> the <b>+</b> button to instantly Max it.
                         </span>
                     </span>
                     <span id="penCompletionText">0 / 0 penalties (0%)</span>
@@ -933,10 +935,10 @@
             if (event && event.shiftKey) {
                 if (delta === -1) {
                     itemCounts[itemId] = 0;
+                } else if (delta === 1 && !isBoxClick) {
+                    itemCounts[itemId] = cap;
                 } else if (isBoxClick) {
                     itemCounts[itemId] = (current === cap) ? 0 : cap;
-                } else {
-                    itemCounts[itemId] = Math.min(cap, Math.max(0, current + delta));
                 }
             } 
             else if (current === cap && delta > 0 && isBoxClick) {
@@ -1231,10 +1233,10 @@
             if (event && event.shiftKey) {
                 if (delta === -1) {
                     penCounts[itemId] = 0;
+                } else if (delta === 1 && !isBoxClick) {
+                    penCounts[itemId] = cap;
                 } else if (isBoxClick) {
                     penCounts[itemId] = (current === cap) ? 0 : cap;
-                } else {
-                    penCounts[itemId] = Math.min(cap, Math.max(0, current + delta));
                 }
             } 
             else if (current === cap && delta > 0 && isBoxClick) {
