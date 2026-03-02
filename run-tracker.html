@@ -14,7 +14,8 @@
             --card-bg: #1e1e1e;
             --text-main: #e0e0e0;
             --text-muted: #888888;
-            --accent: #4CAF50; /* Green accent for generic progress */
+            --accent: #4CAF50;
+            /* Green accent for generic progress */
             --border: #333333;
             --danger: #d32f2f; /* Red for reset buttons */
             --danger-hover: #b71c1c;
@@ -106,8 +107,10 @@
         }
 
         /* Container for search and filter buttons */
-        .top-row { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
-        .search-wrapper { position: relative; flex-grow: 1; min-width: 250px; display: flex; align-items: center; }
+        .top-row { display: flex;
+            gap: 15px; align-items: center; flex-wrap: wrap; }
+        .search-wrapper { position: relative; flex-grow: 1;
+            min-width: 250px; display: flex; align-items: center; }
         
         /* Search input styling */
         .search-input {
@@ -117,12 +120,15 @@
             font-size: 1rem; outline: none;
             transition: border-color 0.2s, box-shadow 0.2s, background-color 0.3s;
         }
-        .search-input:focus { border-color: var(--accent); box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2); }
+        .search-input:focus { border-color: var(--accent);
+            box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2); }
         
         /* Animation keyframes for a visual flash when search is cleared */
         @keyframes flashEffect {
-            0% { box-shadow: 0 0 15px var(--accent); border-color: var(--accent); background-color: rgba(76, 175, 80, 0.15); }
-            100% { box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2); border-color: var(--accent); background-color: var(--card-bg); }
+            0% { box-shadow: 0 0 15px var(--accent);
+            border-color: var(--accent); background-color: rgba(76, 175, 80, 0.15); }
+            100% { box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+            border-color: var(--accent); background-color: var(--card-bg); }
         }
         .search-input.flash {
             animation: flashEffect 0.5s ease-out;
@@ -136,7 +142,8 @@
         }
 
         /* Container for the category toggle pills */
-        .category-filters { display: flex; gap: 10px; flex-wrap: wrap; }
+        .category-filters { display: flex;
+            gap: 10px; flex-wrap: wrap; }
         
         /* Interactive pill buttons for filtering categories */
         .filter-pill {
@@ -147,39 +154,61 @@
             user-select: none; display: flex; gap: 6px;
         }
         /* Muted text for the "(X left)" counter inside pills */
-        .filter-pill .remaining-count { opacity: 0.6; font-weight: 400; }
+        .filter-pill .remaining-count { opacity: 0.6;
+            font-weight: 400; }
 
         /* Animation keyframes for a glowing effect on completed categories/items */
         @keyframes pulseGlow {
-            0% { box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
-            50% { box-shadow: 0 0 15px var(--glow-color); border-color: var(--border-color, inherit); }
-            100% { box-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+            0% { box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
+            50% { box-shadow: 0 0 15px var(--glow-color);
+            border-color: var(--border-color, inherit); }
+            100% { box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            }
         }
 
         /* Specific colors for active filter pills based on category */
-        .filter-pill#filter-item-generics.active { border-color: var(--accent); color: var(--accent); background: rgba(76, 175, 80, 0.1); }
-        .filter-pill#filter-item-tarots.active { border-color: var(--gold); color: var(--gold); background: rgba(255, 215, 0, 0.1); }
-        .filter-pill#filter-item-wofs.active { border-color: var(--purple); color: var(--purple); background: rgba(163, 51, 200, 0.1); }
+        .filter-pill#filter-item-generics.active { border-color: var(--accent);
+            color: var(--accent); background: rgba(76, 175, 80, 0.1); }
+        .filter-pill#filter-item-tarots.active { border-color: var(--gold);
+            color: var(--gold); background: rgba(255, 215, 0, 0.1); }
+        .filter-pill#filter-item-wofs.active { border-color: var(--purple);
+            color: var(--purple); background: rgba(163, 51, 200, 0.1); }
         
-        .filter-pill#filter-penalty-generics.active { border-color: var(--generic-color); color: var(--generic-color); background: hsla(190, 100%, 50%, 0.1); }
-        .filter-pill#filter-penalty-threats.active { border-color: var(--threat-color); color: var(--threat-color); background: hsla(30, 100%, 50%, 0.1); }
+        .filter-pill#filter-penalty-generics.active { border-color: var(--generic-color);
+            color: var(--generic-color); background: hsla(190, 100%, 50%, 0.1); }
+        .filter-pill#filter-penalty-threats.active { border-color: var(--threat-color);
+            color: var(--threat-color); background: hsla(30, 100%, 50%, 0.1); }
 
         /* Glowing states for filter pills when a category is 100% complete */
-        .filter-pill.complete#filter-item-generics { animation: pulseGlow 3s infinite ease-in-out; --glow-color: rgba(76, 175, 80, 0.4); --border-color: var(--accent); color: var(--accent) !important; background: rgba(76, 175, 80, 0.05) !important; }
-        .filter-pill.complete#filter-item-tarots { animation: pulseGlow 3s infinite ease-in-out; --glow-color: rgba(255, 215, 0, 0.4); --border-color: var(--gold); color: var(--gold) !important; background: rgba(255, 215, 0, 0.05) !important; }
-        .filter-pill.complete#filter-item-wofs { animation: pulseGlow 3s infinite ease-in-out; --glow-color: rgba(163, 51, 200, 0.4); --border-color: var(--purple); color: var(--purple) !important; background: rgba(163, 51, 200, 0.05) !important; }
+        .filter-pill.complete#filter-item-generics { animation: pulseGlow 3s infinite ease-in-out;
+            --glow-color: rgba(76, 175, 80, 0.4); --border-color: var(--accent); color: var(--accent) !important; background: rgba(76, 175, 80, 0.05) !important;
+        }
+        .filter-pill.complete#filter-item-tarots { animation: pulseGlow 3s infinite ease-in-out; --glow-color: rgba(255, 215, 0, 0.4);
+            --border-color: var(--gold); color: var(--gold) !important; background: rgba(255, 215, 0, 0.05) !important;
+        }
+        .filter-pill.complete#filter-item-wofs { animation: pulseGlow 3s infinite ease-in-out; --glow-color: rgba(163, 51, 200, 0.4);
+            --border-color: var(--purple); color: var(--purple) !important; background: rgba(163, 51, 200, 0.05) !important;
+        }
 
-        .filter-pill.complete#filter-penalty-generics { animation: pulseGlow 3s infinite ease-in-out; --glow-color: hsla(190, 100%, 50%, 0.4); --border-color: var(--generic-color); color: var(--generic-color) !important; background: hsla(190, 100%, 50%, 0.05) !important; }
-        .filter-pill.complete#filter-penalty-threats { animation: pulseGlow 3s infinite ease-in-out; --glow-color: hsla(30, 100%, 50%, 0.4); --border-color: var(--threat-color); color: var(--threat-color) !important; background: hsla(30, 100%, 50%, 0.05) !important; }
+        .filter-pill.complete#filter-penalty-generics { animation: pulseGlow 3s infinite ease-in-out; --glow-color: hsla(190, 100%, 50%, 0.4);
+            --border-color: var(--generic-color); color: var(--generic-color) !important; background: hsla(190, 100%, 50%, 0.05) !important;
+        }
+        .filter-pill.complete#filter-penalty-threats { animation: pulseGlow 3s infinite ease-in-out; --glow-color: hsla(30, 100%, 50%, 0.4);
+            --border-color: var(--threat-color); color: var(--threat-color) !important; background: hsla(30, 100%, 50%, 0.05) !important;
+        }
 
         /* Styling for utility toggles */
         .toggle-completed-container {
-            display: flex; align-items: center; gap: 8px; background: var(--card-bg);
+            display: flex;
+            align-items: center; gap: 8px; background: var(--card-bg);
             padding: 0 15px; height: 46px; border-radius: 10px; border: 1px solid var(--border);
-            cursor: pointer; user-select: none; white-space: nowrap; font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none; white-space: nowrap; font-size: 0.9rem;
             color: var(--text-muted); transition: border-color 0.2s;
         }
-        .toggle-completed-container.active { border-color: var(--accent); color: var(--text-main); }
+        .toggle-completed-container.active { border-color: var(--accent); color: var(--text-main);
+        }
 
         /* Tooltip Container and Icon */
         .tooltip-container {
@@ -243,61 +272,92 @@
         }
         
         /* Highlight text inside tooltip */
-        .tooltip-text b { color: var(--accent); }
+        .tooltip-text b { color: var(--accent);
+        }
 
         /* Overall progress bar container at the top of a tab */
-        .stats-bar { background: var(--card-bg); padding: 15px; border-radius: 10px; border: 1px solid var(--border); }
-        .stats-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.9rem; font-weight: bold; }
-        .progress-container { width: 100%; height: 10px; background: var(--progress-bg); border-radius: 5px; overflow: hidden; }
-        .progress-fill { width: 0%; height: 100%; background: var(--accent); transition: width 0.4s ease, background-color 0.4s ease; }
+        .stats-bar { background: var(--card-bg);
+            padding: 15px; border-radius: 10px; border: 1px solid var(--border); }
+        .stats-info { display: flex;
+            justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.9rem; font-weight: bold;
+        }
+        .progress-container { width: 100%; height: 10px; background: var(--progress-bg); border-radius: 5px; overflow: hidden;
+        }
+        .progress-fill { width: 0%; height: 100%; background: var(--accent);
+            transition: width 0.4s ease, background-color 0.4s ease; }
 
         /* Headers for individual categories */
         .section-header {
-            display: flex; align-items: center; border-bottom: 2px solid var(--border);
+            display: flex;
+            align-items: center; border-bottom: 2px solid var(--border);
             margin-bottom: 1rem; cursor: pointer; user-select: none; gap: 20px;
-            padding: 10px 15px; border-radius: 8px 8px 0 0; transition: background-color 0.4s ease, border-color 0.4s ease;
+            padding: 10px 15px;
+            border-radius: 8px 8px 0 0; transition: background-color 0.4s ease, border-color 0.4s ease;
         }
-        .section-header h1 { border-bottom: none; margin: 0; font-size: 1.5rem; white-space: nowrap; }
+        .section-header h1 { border-bottom: none; margin: 0; font-size: 1.5rem; white-space: nowrap;
+        }
 
         /* Special background tints for category headers when that category is 100% complete */
-        .section-header.mastery-item-generics { background-color: rgba(76, 175, 80, 0.08); border-color: var(--accent); }
-        .section-header.mastery-item-tarots { background-color: rgba(255, 215, 0, 0.08); border-color: var(--gold); }
-        .section-header.mastery-item-wofs { background-color: rgba(163, 51, 200, 0.1); border-color: var(--purple); }
-        .section-header.mastery-penalty-generics { background-color: hsla(190, 100%, 50%, 0.08); border-color: var(--generic-color); }
-        .section-header.mastery-penalty-threats { background-color: hsla(30, 100%, 50%, 0.08); border-color: var(--threat-color); }
+        .section-header.mastery-item-generics { background-color: rgba(76, 175, 80, 0.08);
+            border-color: var(--accent); }
+        .section-header.mastery-item-tarots { background-color: rgba(255, 215, 0, 0.08); border-color: var(--gold);
+        }
+        .section-header.mastery-item-wofs { background-color: rgba(163, 51, 200, 0.1); border-color: var(--purple);
+        }
+        .section-header.mastery-penalty-generics { background-color: hsla(190, 100%, 50%, 0.08); border-color: var(--generic-color);
+        }
+        .section-header.mastery-penalty-threats { background-color: hsla(30, 100%, 50%, 0.08); border-color: var(--threat-color);
+        }
 
         /* Small progress bar embedded within the section header */
-        .section-progress-wrapper { flex-grow: 1; max-width: 300px; display: flex; flex-direction: column; gap: 4px; }
-        .section-progress-text { font-size: 0.7rem; color: var(--text-muted); font-weight: bold; text-transform: uppercase; }
-        .section-progress-container { width: 100%; height: 6px; background: var(--progress-bg); border-radius: 3px; overflow: hidden; }
-        .section-progress-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.4s ease, background-color 0.4s ease; opacity: 0.8; }
+        .section-progress-wrapper { flex-grow: 1;
+            max-width: 300px; display: flex; flex-direction: column; gap: 4px; }
+        .section-progress-text { font-size: 0.7rem;
+            color: var(--text-muted); font-weight: bold; text-transform: uppercase; }
+        .section-progress-container { width: 100%; height: 6px;
+            background: var(--progress-bg); border-radius: 3px; overflow: hidden; }
+        .section-progress-fill { height: 100%; width: 0%;
+            background: var(--accent); transition: width 0.4s ease, background-color 0.4s ease; opacity: 0.8;
+        }
         
         /* Expand/Collapse text button in section headers */
-        .toggle-btn { background: none; border: none; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; width: auto; height: auto; padding: 5px 10px; font-weight: bold; cursor: pointer; }
+        .toggle-btn { background: none;
+            border: none; color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; width: auto; height: auto; padding: 5px 10px; font-weight: bold;
+            cursor: pointer; }
 
         /* Responsive grid layout for the item/penalty cards */
-        .grid-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; padding: 0 5px; }
-        .grid-container.collapsed { display: none !important; }
+        .grid-container { display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 15px; padding: 0 5px; }
+        .grid-container.collapsed { display: none !important;
+        }
 
         /* Individual item/penalty card styling */
         .row {
-            display: flex; flex-direction: column; background: var(--card-bg); padding: 12px 15px;
+            display: flex;
+            flex-direction: column; background: var(--card-bg); padding: 12px 15px;
             border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); border: 1px solid var(--border);
             transition: transform 0.2s, box-shadow 0.2s, border-color 0.3s, opacity 0.3s, filter 0.3s; position: relative;
-            height: 105px; box-sizing: border-box; justify-content: space-between; cursor: pointer;
+            height: 105px; box-sizing: border-box; justify-content: space-between;
+            cursor: pointer;
         }
-        .row:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.4); }
+        .row:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+        }
 
         /* Styling for excluded items */
         .row.excluded {
-            opacity: 0.4; filter: grayscale(100%);
+            opacity: 0.4;
+            filter: grayscale(100%);
             box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0,0,0,0.2) !important;
-            border-color: #444 !important; pointer-events: none; background-color: #1a1a1a !important; animation: none !important;
+            border-color: #444 !important;
+            pointer-events: none; background-color: #1a1a1a !important; animation: none !important;
         }
         
-        .row.excluded .item-name { color: #777 !important; }
-        .row.excluded .checkmark { visibility: hidden !important; }
-        .row.excluded .item-bar-fill { background-color: #444 !important; }
+        .row.excluded .item-name { color: #777 !important;
+        }
+        .row.excluded .checkmark { visibility: hidden !important;
+        }
+        .row.excluded .item-bar-fill { background-color: #444 !important;
+        }
 
         /* Visual cue for items locked into an "ON" state */
         .row.locked-on .btn-ctrl {
@@ -305,68 +365,110 @@
             cursor: not-allowed;
             background-color: transparent;
         }
-        .row.locked-on .checkmark {
-            color: var(--gold) !important;
-        }
 
         /* Styles applied to cards when they hit their max cap (completion) */
-        #item-generics .row.done { border-color: var(--accent); --glow-color: rgba(76, 175, 80, 0.4); animation: pulseGlow 3s infinite ease-in-out; background-color: #182818; }
-        #item-tarots .row.done { border-color: var(--gold); --glow-color: rgba(255, 215, 0, 0.35); animation: pulseGlow 3s infinite ease-in-out; background-color: #282418; }
-        #item-wofs .row.done { border-color: var(--purple); --glow-color: rgba(163, 51, 200, 0.4); animation: pulseGlow 3s infinite ease-in-out; background-color: #241828; }
-        #penalty-generics .row.done { border-color: var(--generic-color); --glow-color: hsla(190, 100%, 50%, 0.4); animation: pulseGlow 3s infinite ease-in-out; background-color: hsla(190, 100%, 8%, 1); }
-        #penalty-threats .row.done { border-color: var(--threat-color); --glow-color: hsla(30, 100%, 50%, 0.4); animation: pulseGlow 3s infinite ease-in-out; background-color: hsla(30, 100%, 8%, 1); }
+        #item-generics .row.done { border-color: var(--accent);
+            --glow-color: rgba(76, 175, 80, 0.4); animation: pulseGlow 3s infinite ease-in-out; background-color: #182818;
+        }
+        #item-tarots .row.done { border-color: var(--gold); --glow-color: rgba(255, 215, 0, 0.35);
+            animation: pulseGlow 3s infinite ease-in-out; background-color: #282418; }
+        #item-wofs .row.done { border-color: var(--purple);
+            --glow-color: rgba(163, 51, 200, 0.4); animation: pulseGlow 3s infinite ease-in-out; background-color: #241828;
+        }
+        #penalty-generics .row.done { border-color: var(--generic-color); --glow-color: hsla(190, 100%, 50%, 0.4);
+            animation: pulseGlow 3s infinite ease-in-out; background-color: hsla(190, 100%, 8%, 1);
+        }
+        #penalty-threats .row.done { border-color: var(--threat-color); --glow-color: hsla(30, 100%, 50%, 0.4);
+            animation: pulseGlow 3s infinite ease-in-out; background-color: hsla(30, 100%, 8%, 1);
+        }
 
         /* Internal layout of the card content */
-        .row-content { display: flex; align-items: center; width: 100%; flex-grow: 1; overflow: hidden; }
+        .row-content { display: flex;
+            align-items: center; width: 100%; flex-grow: 1; overflow: hidden; }
 
         /* Image thumbnail placeholder/container */
         .image-column {
-            display: flex; justify-content: center; align-items: center; width: 50px; height: 50px;
+            display: flex;
+            justify-content: center; align-items: center; width: 50px; height: 50px;
             flex-shrink: 0; margin-right: 15px; border-radius: 4px; background: #2a2a2a; overflow: hidden;
         }
-        .image-column img { width: 100%; height: 100%; object-fit: contain; }
-        .placeholder-img { color: #777; font-size: 10px; text-align: center; }
+        .image-column img { width: 100%; height: 100%; object-fit: contain;
+        }
+        .placeholder-img { color: #777; font-size: 10px; text-align: center;
+        }
 
         /* Text information container within the card */
-        .item-info { flex-grow: 1; display: flex; flex-direction: column; overflow: hidden; justify-content: center; height: 100%; }
+        .item-info { flex-grow: 1;
+            display: flex; flex-direction: column; overflow: hidden; justify-content: center; height: 100%;
+        }
         /* Item title text clamping */
-        .item-name { font-weight: 600; font-size: 0.95rem; white-space: normal; word-wrap: break-word; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .item-name { font-weight: 600;
+            font-size: 0.95rem; white-space: normal; word-wrap: break-word; line-height: 1.2; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+        }
 
         /* Completed item text colors */
-        #item-generics .row.done .item-name { color: var(--accent); }
-        #item-tarots .row.done .item-name { color: var(--gold); }
-        #item-wofs .row.done .item-name { color: #d084e8; }
-        #penalty-generics .row.done .item-name { color: var(--generic-color); }
-        #penalty-threats .row.done .item-name { color: var(--threat-color); }
+        #item-generics .row.done .item-name { color: var(--accent);
+        }
+        #item-tarots .row.done .item-name { color: var(--gold);
+        }
+        #item-wofs .row.done .item-name { color: #d084e8;
+        }
+        #penalty-generics .row.done .item-name { color: var(--generic-color);
+        }
+        #penalty-threats .row.done .item-name { color: var(--threat-color);
+        }
 
-        .weight { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
-        .controls { display: flex; align-items: center; gap: 8px; margin-left: 10px; flex-shrink: 0; }
+        .weight { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px;
+        }
+        .controls { display: flex; align-items: center; gap: 8px; margin-left: 10px; flex-shrink: 0;
+        }
         button.btn-ctrl {
-            background-color: #2a2a2a; border: 1px solid #444; color: var(--text-main); border-radius: 4px;
+            background-color: #2a2a2a;
+            border: 1px solid #444; color: var(--text-main); border-radius: 4px;
             width: 28px; height: 28px; font-size: 1.1rem; cursor: pointer; display: flex; align-items: center;
             justify-content: center; transition: background 0.2s;
         }
-        button.btn-ctrl:hover { background-color: #3a3a3a; }
-        .counter-text { font-weight: bold; min-width: 35px; text-align: center; font-variant-numeric: tabular-nums; font-size: 0.9rem; }
+        button.btn-ctrl:hover { background-color: #3a3a3a;
+        }
+        .counter-text { font-weight: bold; min-width: 35px; text-align: center; font-variant-numeric: tabular-nums; font-size: 0.9rem;
+        }
 
-        .checkmark { visibility: hidden; opacity: 0; font-weight: bold; font-size: 1.1rem; margin-left: 2px; width: 18px; text-align: center; transition: opacity 0.3s ease, visibility 0.3s ease; }
-        .row.done .checkmark { visibility: visible; opacity: 1; }
+        .checkmark { visibility: hidden; opacity: 0; font-weight: bold; font-size: 1.1rem; margin-left: 2px;
+            width: 18px; text-align: center; transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .row.done .checkmark { visibility: visible; opacity: 1;
+        }
         
-        #item-generics .row.done .checkmark { color: var(--accent); }
-        #item-tarots .row.done .checkmark { color: var(--gold); }
-        #item-wofs .row.done .checkmark { color: var(--purple); }
-        #penalty-generics .row.done .checkmark { color: var(--generic-color); }
-        #penalty-threats .row.done .checkmark { color: var(--threat-color); }
+        #item-generics .row.done .checkmark { color: var(--accent);
+        }
+        #item-tarots .row.done .checkmark { color: var(--gold);
+        }
+        #item-wofs .row.done .checkmark { color: var(--purple);
+        }
+        #penalty-generics .row.done .checkmark { color: var(--generic-color);
+        }
+        #penalty-threats .row.done .checkmark { color: var(--threat-color);
+        }
 
-        .item-bar-container { width: 100%; height: 4px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden; margin-top: 4px; flex-shrink: 0; position: relative; }
-        .item-bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 0.3s ease, background-color 0.3s ease; position: relative; overflow: hidden; }
+        .item-bar-container { width: 100%; height: 4px; background: rgba(255,255,255,0.05); border-radius: 2px; overflow: hidden;
+            margin-top: 4px; flex-shrink: 0; position: relative; }
+        .item-bar-fill { height: 100%; width: 0%;
+            background: var(--accent); transition: width 0.3s ease, background-color 0.3s ease; position: relative; overflow: hidden;
+        }
 
-        @keyframes barSparkle { 0% { left: -100%; } 100% { left: 200%; } }
-        .item-bar-fill.sparkle::after { content: ''; position: absolute; top: 0; left: -100%; width: 80px; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent); animation: barSparkle 2.5s infinite linear; }
+        @keyframes barSparkle { 0% { left: -100%; } 100% { left: 200%;
+        } }
+        .item-bar-fill.sparkle::after { content: ''; position: absolute; top: 0; left: -100%;
+            width: 80px; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent); animation: barSparkle 2.5s infinite linear;
+        }
 
-        .reset-section { display: flex; justify-content: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border); }
-        .reset-btn { background-color: var(--danger); color: white; border: none; border-radius: 6px; padding: 10px 20px; font-size: 1rem; font-weight: bold; width: auto; height: auto; cursor: pointer; }
-        .reset-btn:hover { background-color: var(--danger-hover); }
+        .reset-section { display: flex; justify-content: center; margin-top: 2rem; padding-top: 2rem;
+            border-top: 1px solid var(--border); }
+        .reset-btn { background-color: var(--danger); color: white; border: none;
+            border-radius: 6px; padding: 10px 20px; font-size: 1rem; font-weight: bold; width: auto; height: auto; cursor: pointer;
+        }
+        .reset-btn:hover { background-color: var(--danger-hover);
+        }
 
     </style>
 </head>
@@ -413,9 +515,10 @@
                     <span class="tooltip-container">
                         Completion Progress <span class="info-icon">ⓘ</span>
                         <span class="tooltip-text">
-                            <b>Pro Tip:</b><br>
-                            • <b>Shift + Click</b> an item to instantly Max or Reset it.<br>
-                            • Clicking a Maxed item will decrease its count by 1.
+                            <b>Tip:</b><br>
+                            • Click an item box to increment it.<br>
+                            • Clicking a Maxed item box will decrease its count by 1.<br>
+                            • <b>Shift + Click</b> an item to instantly Max or Reset it.
                         </span>
                     </span>
                     <span id="itemCompletionText">0 / 0 items (0%)</span>
@@ -506,9 +609,10 @@
                     <span class="tooltip-container">
                         Completion Progress <span class="info-icon">ⓘ</span>
                         <span class="tooltip-text">
-                            <b>Pro Tip:</b><br>
-                            • <b>Shift + Click</b> a penalty to instantly Max or Reset it.<br>
-                            • Clicking a Maxed penalty will decrease its count by 1.
+                            <b>Tip:</b><br>
+                            • Click a penalty box to increment it.<br>
+                            • Clicking a Maxed penalty box will decrease its count by 1.<br>
+                            • <b>Shift + Click</b> a penalty to instantly Max or Reset it.
                         </span>
                     </span>
                     <span id="penCompletionText">0 / 0 penalties (0%)</span>
@@ -553,7 +657,8 @@
     </main>
 
     <script>
-        function escapeId(id) { return id; }
+        function escapeId(id) { return id;
+        }
         
         function getProgressColor(percent) { 
             return `hsl(${(percent / 100) * 120}, 70%, 45%)`;
@@ -574,7 +679,6 @@
         }
 
         const romanMap = ["0", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV", "XVI", "XVII", "XVIII", "XIX", "XX", "XXI"];
-        
         // --- ITEM STATE MANAGEMENT ---
         const itemCounts = JSON.parse(localStorage.getItem("itemTrackerCounts")) || {};
         const itemCollapsedStates = JSON.parse(localStorage.getItem("itemTrackerCollapsed")) || {};
@@ -584,10 +688,8 @@
         // Fetch saved state or default to true for new users
         let savedTcState = localStorage.getItem("itemTrackerEnableTarotCloth");
         let tarotClothEnabled = savedTcState !== null ? JSON.parse(savedTcState) : true;
-        
         const itemCategoryMap = { 'item-generics': [], 'item-tarots': [], 'item-wofs': [] };
         const itemCaps = {};
-        
         function renderItemCategory(data, containerId) {
             const container = document.getElementById(containerId);
             for (const [itemId, item] of Object.entries(data)) {
@@ -599,7 +701,6 @@
                 const imageContent = item.image 
                     ? `<img src="${item.image}" alt="icon" loading="lazy" onerror="this.src='https://via.placeholder.com/50?text=?'">` 
                     : ``;
-                
                 let displayName = itemId.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2');
                 if (displayName.startsWith("WOF ")) displayName = displayName.replace("WOF ", "");
                 displayName = displayName.replace(/^(\d+)/, (match) => romanMap[parseInt(match, 10)] || match);
@@ -608,7 +709,8 @@
                 displayName = displayName.charAt(0).toUpperCase() + displayName.slice(1);
                 displayName = displayName.replace(/-\s*([a-z])/, (m, p1) => '- ' + p1.toUpperCase());
                 
-                const statLabel = item.chance !== undefined ? `Chance: ${item.chance}` : `Weight: ${item.weight}`;
+                const statLabel = item.chance !== undefined ?
+                `Chance: ${item.chance}` : `Weight: ${item.weight}`;
                 
                 let displayCount = itemCounts[itemId];
                 let percent = (displayCount / item.cap) * 100;
@@ -631,7 +733,7 @@
                 row.className = `row ${isDone} ${lockedClass}`.trim();
                 row.id = `row-${itemId}`;
                 row.setAttribute('data-id', safeId);
-                row.setAttribute('onclick', `updateItem(1, ${item.cap}, this.getAttribute('data-id'), event)`);
+                row.setAttribute('onclick', `updateItem(1, ${item.cap}, this.getAttribute('data-id'), event, true)`);
 
                 row.innerHTML = `
                     <div class="row-content">
@@ -641,9 +743,9 @@
                             <div class="weight">${statLabel}</div>
                         </div>
                         <div class="controls">
-                            <button class="btn-ctrl" data-id="${safeId}" onclick="updateItem(-1, ${item.cap}, this.getAttribute('data-id'), event)">-</button>
+                            <button class="btn-ctrl" data-id="${safeId}" onclick="updateItem(-1, ${item.cap}, this.getAttribute('data-id'), event, false)">-</button>
                             <div class="counter-text"><span id="${safeId}Counter">${displayCount}</span> / ${item.cap}</div>
-                            <button class="btn-ctrl" data-id="${safeId}" onclick="updateItem(1, ${item.cap}, this.getAttribute('data-id'), event)">+</button>
+                            <button class="btn-ctrl" data-id="${safeId}" onclick="updateItem(1, ${item.cap}, this.getAttribute('data-id'), event, false)">+</button>
                             <div class="checkmark">✓</div>
                         </div>
                     </div>
@@ -665,7 +767,7 @@
         }
 
         function toggleItemCategoryVisibility(id) {
-            itemActiveCats[id] = !itemActiveCats[id];
+             itemActiveCats[id] = !itemActiveCats[id];
             localStorage.setItem("itemTrackerActiveCats", JSON.stringify(itemActiveCats));
             applyItemVisibilityStates();
         }
@@ -692,7 +794,6 @@
                 const bar = document.getElementById('TarotClothBar');
                 const itemCap = itemCaps['TarotCloth'] || 1;
                 const realCount = itemCounts['TarotCloth'] || 0;
-
                 if (tarotClothEnabled) {
                     if (counter) counter.textContent = itemCap;
                     if (bar) {
@@ -725,17 +826,16 @@
             let totalPossibleAll = 0, currentAll = 0;
             for (const [catId, itemIds] of Object.entries(itemCategoryMap)) {
                 let catPossible = 0, catCurrent = 0;
-                
                 itemIds.forEach(id => { 
                     let cap = itemCaps[id] || 0;
                     catPossible += cap; 
                     
                     if (id === 'TarotCloth' && tarotClothEnabled) {
-                        catCurrent += cap; 
+                         catCurrent += cap; 
                     } else {
                         catCurrent += (itemCounts[id] || 0); 
                     }
-                });
+                 });
                 
                 totalPossibleAll += catPossible; currentAll += catCurrent;
                 const catPercent = catPossible > 0 ? Math.round((catCurrent / catPossible) * 100) : 0;
@@ -796,7 +896,6 @@
             localStorage.setItem("itemTrackerHideCompleted", JSON.stringify(hideDone));
             const wrapper = document.getElementById('itemHideCompletedWrapper');
             if(wrapper) hideDone ? wrapper.classList.add('active') : wrapper.classList.remove('active');
-            
             document.querySelectorAll('#tab-items .row').forEach(row => {
                 const name = row.querySelector('.item-name').textContent.toLowerCase();
                 let isDone = row.classList.contains('done');
@@ -806,7 +905,6 @@
                 const shouldBeVisible = name.includes(query) && (!hideDone || !isDone);
                 row.style.display = shouldBeVisible ? 'flex' : 'none';
             });
-            
             ['item-generics', 'item-tarots', 'item-wofs'].forEach(id => {
                 const section = document.getElementById(`section-${id}`);
                 if (!itemActiveCats[id]) return; 
@@ -817,23 +915,22 @@
                 if (query !== "" && visibleRows.length > 0) {
                     const container = document.getElementById(id);
                     const btn = document.getElementById('btn-' + id);
+        
                     if(container) container.classList.remove('collapsed');
                     if(btn) btn.textContent = 'Collapse';
                 }
             });
         }
 
-        function updateItem(delta, cap, itemId, event) {
+        function updateItem(delta, cap, itemId, event, isBoxClick = false) {
             if (event) event.stopPropagation();
-
             if (typeof tarotClothEnabled !== 'undefined' && itemId === 'TarotCloth' && tarotClothEnabled) return;
 
             let current = itemCounts[itemId] || 0;
-
             if (event && event.shiftKey) {
                 itemCounts[itemId] = (current === cap) ? 0 : cap;
             } 
-            else if (current === cap && delta > 0) {
+            else if (current === cap && delta > 0 && isBoxClick) {
                 itemCounts[itemId] = Math.max(0, current - 1);
             } 
             else {
@@ -845,7 +942,6 @@
             const safeId = escapeId(itemId);
             const counter = document.getElementById(`${safeId}Counter`);
             const bar = document.getElementById(`${safeId}Bar`);
-
             if(counter) counter.textContent = itemCounts[itemId];
             
             if(bar) {
@@ -863,17 +959,14 @@
 
         function resetAllItems() {
             if (!confirm("Reset all item progress?")) return;
-            
             for (const itemId in itemCounts) {
-                itemCounts[itemId] = 0; 
-                
+                itemCounts[itemId] = 0;
                 const row = document.getElementById(`row-${itemId}`);
                 const safeId = escapeId(itemId);
                 const bar = document.getElementById(`${safeId}Bar`);
                 const counter = document.getElementById(`${safeId}Counter`);
-                
                 if (typeof tarotClothEnabled !== 'undefined' && itemId === 'TarotCloth' && tarotClothEnabled) {
-                    continue; 
+                    continue;
                 }
                 
                 if(counter) counter.textContent = 0;
@@ -897,7 +990,6 @@
         const penHideCompleted = JSON.parse(localStorage.getItem("penaltyTrackerHideCompleted")) || false;
         
         let heatstrokeExcluded = JSON.parse(localStorage.getItem("penaltyTrackerExcludeHeatstroke")) || false;
-        
         const penCategoryMap = { 'penalty-generics': [], 'penalty-threats': [] };
         const penCaps = {};
         const penNameOverrides = {
@@ -907,7 +999,7 @@
             "NoThoughts,HeadEmpty": "No Thoughts, Head Empty",
             "JordiDoorCamper": "Jordi \"Door Camper\"",
             "CutTheStrings": "Cut the Strings"
-        };
+         };
 
         function renderPenaltyCategory(data, containerId) {
             const container = document.getElementById(containerId);
@@ -920,12 +1012,10 @@
                                   itemId.replace(/([a-z])([A-Z])/g, '$1 $2')
                                         .replace(/([A-Z]+)([A-Z][a-z])/g, '$1 $2')
                                         .replace(/([a-z])(['])([a-z])/ig, '$1$2$3');
-                                        
                 let displayCount = penCounts[itemId];
                 let percent = (displayCount / item.cap) * 100;
                 let isDone = displayCount === item.cap ? "done" : "";
                 let sparkleClass = displayCount === item.cap ? "sparkle" : "";
-                
                 if (itemId === 'Heatstroke' && heatstrokeExcluded) {
                     displayCount = 0;
                     percent = 0;
@@ -938,14 +1028,14 @@
 
                 const row = document.createElement("div");
                 row.className = `row ${isDone}`;
-                
+              
                 if (itemId === 'Heatstroke' && heatstrokeExcluded) {
                     row.classList.add('excluded');
                 }
                 
                 row.id = `row-${itemId}`;
                 row.setAttribute('data-id', safeId); 
-                row.setAttribute('onclick', `updatePen(1, ${item.cap}, this.getAttribute('data-id'), event)`);
+                row.setAttribute('onclick', `updatePen(1, ${item.cap}, this.getAttribute('data-id'), event, true)`);
 
                 row.innerHTML = `
                     <div class="row-content">
@@ -956,11 +1046,11 @@
                             <div class="item-name" title="${safeTitle}">${displayName}</div>
                         </div>
                         <div class="controls">
-                            <button class="btn-ctrl" data-id="${safeId}" onclick="updatePen(-1, ${item.cap}, this.getAttribute('data-id'), event)">-</button>
+                            <button class="btn-ctrl" data-id="${safeId}" onclick="updatePen(-1, ${item.cap}, this.getAttribute('data-id'), event, false)">-</button>
                             <div class="counter-text"><span id="${safeId}Counter">${displayCount}</span> / ${item.cap}</div>
-                            <button class="btn-ctrl" data-id="${safeId}" onclick="updatePen(1, ${item.cap}, this.getAttribute('data-id'), event)">+</button>
+                            <button class="btn-ctrl" data-id="${safeId}" onclick="updatePen(1, ${item.cap}, this.getAttribute('data-id'), event, false)">+</button>
                             <div class="checkmark">✓</div>
-                        </div>
+                         </div>
                     </div>
                     <div class="item-bar-container">
                         <div id="${safeId}Bar" class="item-bar-fill ${sparkleClass}" style="width: ${percent}%; background-color: ${getPenaltyProgressColor(percent)};"></div>
@@ -972,7 +1062,7 @@
 
         function toggleHeatstroke() {
             heatstrokeExcluded = document.getElementById('excludeHeatstrokeCb').checked;
-            localStorage.setItem("penaltyTrackerExcludeHeatstroke", JSON.stringify(heatstrokeExcluded));
+             localStorage.setItem("penaltyTrackerExcludeHeatstroke", JSON.stringify(heatstrokeExcluded));
             const wrapper = document.getElementById('excludeHeatstrokeWrapper');
             if (wrapper) heatstrokeExcluded ? wrapper.classList.add('active') : wrapper.classList.remove('active');
             
@@ -1106,7 +1196,6 @@
             localStorage.setItem("penaltyTrackerHideCompleted", JSON.stringify(hideDone));
             const wrapper = document.getElementById('penHideCompletedWrapper');
             if(wrapper) hideDone ? wrapper.classList.add('active') : wrapper.classList.remove('active');
-            
             document.querySelectorAll('#tab-penalties .row').forEach(row => {
                 const name = row.querySelector('.item-name').textContent.toLowerCase();
                 let isDone = row.classList.contains('done');
@@ -1116,7 +1205,6 @@
                 const shouldBeVisible = name.includes(query) && (!hideDone || !isDone);
                 row.style.display = shouldBeVisible ? 'flex' : 'none';
             });
-            
             ['penalty-generics', 'penalty-threats'].forEach(id => {
                 const section = document.getElementById(`section-${id}`);
                 if (!penActiveCats[id]) return; 
@@ -1125,17 +1213,15 @@
             });
         }
 
-        function updatePen(delta, cap, itemId, event) {
+        function updatePen(delta, cap, itemId, event, isBoxClick = false) {
             if (event) event.stopPropagation();
-
             if (itemId === 'Heatstroke' && heatstrokeExcluded) return;
 
             let current = penCounts[itemId] || 0;
-
             if (event && event.shiftKey) {
                 penCounts[itemId] = (current === cap) ? 0 : cap;
             } 
-            else if (current === cap && delta > 0) {
+            else if (current === cap && delta > 0 && isBoxClick) {
                 penCounts[itemId] = Math.max(0, current - 1);
             } 
             else {
@@ -1147,7 +1233,6 @@
             const safeId = escapeId(itemId);
             const counter = document.getElementById(`${safeId}Counter`);
             const bar = document.getElementById(`${safeId}Bar`);
-
             if (counter) counter.textContent = penCounts[itemId];
             if (bar) {
                 bar.style.width = percent + '%';
@@ -1163,17 +1248,14 @@
 
         function resetAllPenalties() {
             if (!confirm("Reset all penalty progress?")) return;
-            
             for (const itemId in penCounts) {
-                penCounts[itemId] = 0; 
-                
+                penCounts[itemId] = 0;
                 const row = document.getElementById(`row-${itemId}`);
                 const safeId = escapeId(itemId);
                 const bar = document.getElementById(`${safeId}Bar`);
                 const counter = document.getElementById(`${safeId}Counter`);
-                
                 if (itemId === 'Heatstroke' && heatstrokeExcluded) {
-                    continue; 
+                    continue;
                 }
                 
                 if (counter) counter.textContent = 0;
@@ -1208,7 +1290,6 @@
                     fetchJsonData('penalty-generic-data.json'),
                     fetchJsonData('penalty-threat-data.json')
                 ]);
-
                 renderItemCategory(itemGenericData, "item-generics");
                 renderItemCategory(itemTarotData, "item-tarots");
                 renderItemCategory(itemWofData, "item-wofs");
@@ -1233,7 +1314,6 @@
                         if (btn) btn.textContent = 'Expand';
                     }
                 });
-
                 applyItemVisibilityStates();
                 updateItemStats();
 
@@ -1259,7 +1339,7 @@
                         if (container) container.classList.add('collapsed');
                         if (btn) btn.textContent = 'Expand';
                     }
-                });
+                 });
 
                 applyPenaltyVisibilityStates();
                 updatePenaltyStats();
