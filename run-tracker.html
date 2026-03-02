@@ -229,7 +229,7 @@
             color: var(--accent);
         }
 
-        /* Tooltip Popup Box */
+        /* Tooltip Popup Box - Modified to drop down */
         .tooltip-text {
             visibility: hidden;
             width: 250px;
@@ -240,11 +240,11 @@
             padding: 10px 14px;
             position: absolute;
             z-index: 100;
-            bottom: 150%;
+            top: 150%; 
             left: 0;
             opacity: 0;
             transition: opacity 0.2s, transform 0.2s;
-            transform: translateY(5px);
+            transform: translateY(-5px);
             font-size: 0.85rem;
             font-weight: normal;
             border: 1px solid var(--border);
@@ -253,15 +253,15 @@
             line-height: 1.4;
         }
 
-        /* Tooltip Arrow */
+        /* Tooltip Arrow - Modified to point up */
         .tooltip-text::after {
             content: "";
             position: absolute;
-            top: 100%;
+            bottom: 100%;
             left: 20px;
             border-width: 6px;
             border-style: solid;
-            border-color: #2a2a2a transparent transparent transparent;
+            border-color: transparent transparent #2a2a2a transparent;
         }
 
         /* Show Tooltip on Hover */
@@ -515,7 +515,7 @@
                     <span class="tooltip-container">
                         Completion Progress <span class="info-icon">ⓘ</span>
                         <span class="tooltip-text">
-                            <b>Tip:</b><br>
+                            <b>Tips:</b><br>
                             • Click an item box to increment it.<br>
                             • Clicking a Maxed item box will decrease its count by 1.<br>
                             • <b>Shift + Click</b> an item to instantly Max or Reset it.
