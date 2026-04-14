@@ -405,13 +405,15 @@
 		}
 		.counter-text { font-weight: bold; min-width: 35px; text-align: center; font-variant-numeric: tabular-nums; font-size: 0.9rem; }
 
-		.checkmark, .checkmark-death { visibility: hidden; opacity: 0; font-weight: bold; font-size: 1.1rem; margin-left: 2px; width: 18px; text-align: center; transition: opacity 0.3s ease, visibility 0.3s ease; }
+		.checkmark, .checkmark-death, .checkmark-reward { visibility: hidden; opacity: 0; font-weight: bold; font-size: 1.1rem; margin-left: 2px; width: 18px; text-align: center; transition: opacity 0.3s ease, visibility 0.3s ease; }
 		.row.done .checkmark { visibility: visible; opacity: 1; }
 		.row.deathdone .checkmark-death { visibility: visible; opacity: 1; }
+		.row.rewarddone .checkmark-reward { visibility: visible; opacity: 1; }
 
 		#item-generics .row.done .checkmark { color: var(--accent); }
 		#item-tarots .row.done .checkmark { color: var(--gold); }
 		#item-tarots .row.deathdone .checkmark-death { color: var(--danger); }
+		#item-tarots .row.rewarddone .checkmark-reward { color: var(--danger); }
 		#item-wofs .row.done .checkmark { color: var(--purple); }
 		#penalty-generics .row.done .checkmark { color: var(--generic-color); }
 		#penalty-threats .row.done .checkmark { color: var(--threat-color); }
@@ -1003,17 +1005,33 @@
 
 				let deathTracker = "";
 				let deathDone = "";
+				let rewardTracker = "";
+				let rewardDone = "";
 
 				if (itemId === 'XIV-Temperance') {
 					let deathCount = itemCounts["TemperanceDeath"] || 0;
-					deathDone = deathCount === 4 ? "deathdone" : "";
+					const maxDeaths = 4;
+					deathDone = deathCount === maxDeaths ? "deathdone" : "";
 					deathTracker = `
 						<div class="controls" style="scale: 0.75;">
 							💔
-							<button id="btn-minus-TemperanceDeath" class="btn-ctrl" data-id="TemperanceDeath" onclick="updateItem(-1, 4, this.getAttribute('data-id'), event, false)" ${deathCount === 0 ? 'disabled' : ''}>-</button>
-							<div class="counter-text"><span id="TemperanceDeathCounter">${deathCount}</span> / 4</div>
-							<button id="btn-plus-TemperanceDeath" class="btn-ctrl" data-id="TemperanceDeath" onclick="updateItem(1, 4, this.getAttribute('data-id'), event, false)" ${deathCount === 4 ? 'disabled' : ''}>+</button>
+							<button id="btn-minus-TemperanceDeath" class="btn-ctrl" data-id="TemperanceDeath" onclick="updateItem(-1, ${maxDeaths}, this.getAttribute('data-id'), event, false)" ${deathCount === 0 ? 'disabled' : ''}>-</button>
+							<div class="counter-text"><span id="TemperanceDeathCounter">${deathCount}</span> / ${maxDeaths}</div>
+							<button id="btn-plus-TemperanceDeath" class="btn-ctrl" data-id="TemperanceDeath" onclick="updateItem(1, ${maxDeaths}, this.getAttribute('data-id'), event, false)" ${deathCount === maxDeaths ? 'disabled' : ''}>+</button>
 							<div class="checkmark-death">✓</div>
+						</div>
+					`;
+				} else if (itemId === 'X-WheelOfFortune') {
+					let rewardCount = itemCounts["rewardCount"] || 0;
+					const maxRewards = 10;
+					rewardDone = rewardCount === maxRewards ? "rewarddone" : "";
+					rewardTracker = `
+						<div class="controls" style="scale: 0.75;">
+							💲
+							<button id="btn-minus-rewardCount" class="btn-ctrl" data-id="rewardCount" onclick="updateItem(-1, ${maxRewards}, this.getAttribute('data-id'), event, false)" ${rewardCount === 0 ? 'disabled' : ''}>-</button>
+							<div class="counter-text"><span id="rewardCountCounter">${rewardCount}</span> / ${maxRewards}</div>
+							<button id="btn-plus-rewardCount" class="btn-ctrl" data-id="rewardCount" onclick="updateItem(1, ${maxRewards}, this.getAttribute('data-id'), event, false)" ${rewardCount === maxRewards ? 'disabled' : ''}>+</button>
+							<div class="checkmark-reward">✓</div>
 						</div>
 					`;
 				}
@@ -1021,7 +1039,7 @@
 				const safeTitle = displayName.replace(/"/g, '&quot;');
 
 				const row = document.createElement("div");
-				row.className = `row ${isDone} ${deathDone} ${lockedClass}`.trim();
+				row.className = `row ${isDone} ${deathDone} ${rewardDone} ${lockedClass}`.trim();
 				row.id = `row-${itemId}`;
 				row.setAttribute('data-id', safeId);
 				row.setAttribute('onclick', `updateItem(1, ${item.cap}, this.getAttribute('data-id'), event, true)`);
@@ -1041,6 +1059,7 @@
 								<div class="checkmark">✓</div>
 							</div>
 							${deathTracker}
+							${rewardTracker}
 						</div>
 					</div>
 					<div class="item-bar-container">
@@ -1288,6 +1307,7 @@
 
 			if (rowElement) itemCounts[itemId] === cap ? rowElement.classList.add("done") : rowElement.classList.remove("done");
 			if (itemId === "TemperanceDeath") itemCounts["TemperanceDeath"] === 4 ? document.getElementById("row-XIV-Temperance").classList.add("deathdone") : document.getElementById("row-XIV-Temperance").classList.remove("deathdone");
+			if (itemId === "rewardCount") itemCounts["rewardCount"] === 10 ? document.getElementById("row-X-WheelOfFortune").classList.add("rewarddone") : document.getElementById("row-X-WheelOfFortune").classList.remove("rewarddone");
 
 			saveAllData();
 			filterItems(); 
@@ -1322,6 +1342,7 @@
 				if(row) {
 					row.classList.remove("done");
 					row.classList.remove("deathdone");
+					row.classList.remove("rewarddone");
 				}
 			}
 
