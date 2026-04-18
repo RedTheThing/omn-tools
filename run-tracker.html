@@ -65,7 +65,8 @@
 			bottom: 25px;
 			right: 25px;
 			z-index: 1000;
-			padding: 5px;
+			padding: 10px;
+			padding-top: 0px;
 			border-radius: 12px;
 			border: 2px solid var(--border);
 			background: var(--bg-color);
@@ -91,21 +92,16 @@
 			gap: 10px;
 		}
 
-		.power-stat {
-			min-width: 80px;
-			text-align: left;
-		}
-
 		#SoM-img {
 			height: 100px;
 			width: 100px;
 		}
 
-		.movement-stats {
+		.display-stats {
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
-			min-width: 130px;
+			min-width: 132px;
 		}
 
 		/* Tab navigation styling, made sticky to stay at the top during scroll */
@@ -518,7 +514,6 @@
 	<div class="game-stats-container">
 		<div class="game-stats">
 			<div class="game-stats-row">
-				<div class="power-stat"></div>
 				<select id="SoM-select" onchange="updateGameStats()">
 					<option value="Guilty">Guilty</option>
 					<option value="Calm">Calm</option>
@@ -528,14 +523,11 @@
 					<option value="A Puppet">A Puppet</option>
 					<option value="Fooled">Fooled</option>
 				</select>
-				<div class="movement-stats"></div>
 			</div>
 			<div class="game-stats-row">
-				<div class="power-stat">
-					<span>Power: <strong id="powerStat">0</strong></span>
-				</div>
 				<img id="SoM-img">
-				<div class="movement-stats">
+				<div class="display-stats">
+					<span style="margin-bottom: 5px;">Power: <strong id="powerStat">0</strong></span>
 					<span>Run Speed: <strong id="runStat">0</strong></span>
 					<span>Walk Speed: <strong id="walkStat">0</strong></span>
 					<span>Stamina: <strong id="staminaStat">0</strong></span>
@@ -914,6 +906,8 @@
 			const tiredlegs = penCounts.TiredLegs;
 			const burntbatteries = penCounts.BurntBatteries;
 
+			startingpower = stats.power;
+
 			if (bloxycolas > 0) {
 				stats.run	  += bloxycolas * 1.25;
 				stats.walk	  += bloxycolas * 1;
@@ -921,7 +915,7 @@
 			}
 
 			if (chargedbatteries > 0) {
-				stats.power	  += chargedbatteries * SoMStats[som].power * 0.1;
+				stats.power	  += chargedbatteries * startingpower * 0.1;
 			}
 
 			if (temperancedeaths > 0) {
@@ -959,7 +953,7 @@
 			}
 
 			if (burntbatteries > 0) {
-				stats.power	  -= burntbatteries * SoMStats[som].power * 0.1;
+				stats.power	  -= burntbatteries * startingpower * 0.1;
 			}
 
 			// Round to 2 decimals
