@@ -921,7 +921,7 @@
 			}
 
 			if (chargedbatteries > 0) {
-				stats.power	  += chargedbatteries * 10;
+				stats.power	  += chargedbatteries * SoMStats[som].power * 0.1;
 			}
 
 			if (temperancedeaths > 0) {
@@ -959,7 +959,7 @@
 			}
 
 			if (burntbatteries > 0) {
-				stats.power	  -= burntbatteries * 10;
+				stats.power	  -= burntbatteries * SoMStats[som].power * 0.1;
 			}
 
 			// Round to 2 decimals

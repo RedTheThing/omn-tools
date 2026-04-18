@@ -324,7 +324,7 @@
 
 			const penaltyMap = { DooSwa: "Crossed Wires", GenHidInf: "No Thoughts, Head Empty", ClaDooOve: "Classic Door Overheat", EquDis: "Equipment Disabler", PowGenOld: "Classic Holdable Generator", SolDis: "Solo Changes Disabler", PowGenDis: "Power Generator Disabler", BabVoi: "Voidbound Baby", BadBacDoo: "Smartest Bad Play", BadChaSig: "When I Feel Like It", BalBou: "Boulder", BalRep: "Beach Day", BalICBM: "ICBM", BalBal: "Balloons 4 Sale", BalIncWatTim: "Resilient Twins", BarFunSur: "Funsy Surprise", BarIncWatTim: "Stubborn Barry", BarNewBut: "Arcade Failsafe", BarOldWinExp: "Facial Recognition", BarPat: "Updated Pathfinding", BarSil: "Sneaky Bear", BarYelSil: "Silent Presence", BomMin: "Explosive Replacement", BroCatBreCam: "Static Stare", BroChiIgn: "Broken Chimp Ears", BunChiGoOthDoo: "Copycats", BunChiLonWatTim: "Haunting Duo", BunNewAnyCam: "On Tour", ChaSlo: "Shackled", ChiNewFooDec: "Chef 4 Hire", DesIIIBur: "Coral Headache", DryRepMat: "Math Class", FigIgn: "Not Listening", FoxOldLonTim: "Gold-Seeking Pirate", FoxOldShaHoo: "Sharp Hook", FoxRus: "Fox's Rushdown", FoxWeaLig: "Fox's Sabotage", FraRep: "Fran's Tenacity", GliDouEff: "ERROR 264", HesDouDam: "Do not Hesitate", IsrInvChi: "Chicken't", JanLonTim: "Heavy Cleaning Supplies", JawAlwSta: "Shark Teeth", JawSloLea: "Sharp Jaws", JorLonTim: "Jordi \"Door Camper\"", JorRep: "Jordi's Perseverance", KonDouSpa: "One More Konoling", KonInv: "Plushie-Camo", ManLonWatTim: "Persistent Mango", ManRepLas: "Certified Window Tapper", MikPikDorSpl: "Dormant Splinter", NooCap: "Party Noob", NooSloGai: "Noob Time!", OldLonTim: "Withered Robots", PilBel: "Bell", PilSqu: "Reduced Polygons Pillar", PotRepLas: "Toaster Vent", PupSloWinUp: "Rusty Crank", RapLonTim: "Persistent Raptor", RoxLonTim: "Metal Fumo", RoxSne: "Sneak 100", RusA60: "A60", RusAmb: "Ambush", RusSil: "I'm Tip-Toein' Here", ScrFlyPes: "Flying Pest", StrLonTim: "Thicker Strings", StrWir: "Cut the Strings", VenErrLonFix: "Faulty Systems", VoiThiZon: "Voided", WorNoIco: "Wormcave's Deception", ZGueSilAndGue: "ZGuesto's Tactics", ZufFMNooLonWatTim: "Annoying Red", ZufReb: "Red Rebound", HeaStr: "Heatstroke", JorSha: "Jordi's Shadow", PupFSLasSta: "Her Last Stand", PupFSWir: "Marionette's Wires", PupFSAgg: "Puppet's Influence", PupFSLonWatTim: "Puppet's Stare", PupFSCamDis: "Snapped Signal", PupFSSanForOutBox: "[FS] Out of Box" };
 
-			const itemMap = { CarCha: "VII - The Chariot", CarJud: "XX - Judgement", DeaAdr: "Adrenaline", DeaHop: "Hope", DeaHun: "Hunger", DeaPow: "Powerless", Dum: "Dumbell", EquBarHat: "Barry's Top Hat", EquBomFla: "Red Flag", EquCal: "Dry's Calculator", EquFigGlo: "Figure's Glowstick", EquFumSti: "Fumo Sticker", EquGif: "Giftbox", EquIsrChi: "Isra's Chicken", EquJorPai: "Jordi's Paint Brush", EquMySha: "My own Shadow", FloPot: "Flower Pot", LasRobSta: "Last Robloxian Standing", NinBel: "Ninja Belt", PilTra: "Glass Pillar", PowGenCha: "Turbo Mode", TouAsNai: "Tough as Nails" };
+			const itemMap = { CarMag: "I - The Magician", CarEmp: "III - The Empress", CarCha: "VII - The Chariot", CarSta: "XVII - The Star", CarSun: "XIX - The Sun", CarJud: "XX - Judgement", DeaAdr: "Adrenaline", DeaHop: "Hope", DeaHun: "Hunger", DeaPow: "Powerless", DeaSelPre: "Self-Preservation", Dum: "Dumbell", EquBarHat: "Barry's Top Hat", EquBomFla: "Red Flag", EquCal: "Dry's Calculator", EquFigGlo: "Figure's Glowstick", EquFumSti: "Fumo Sticker", EquGif: "Giftbox", EquIsrChi: "Isra's Chicken", EquJorPai: "Jordi's Paint Brush", EquMySha: "My own Shadow", FloPot: "Flower Pot", LasRobSta: "Last Robloxian Standing", NinBel: "Ninja Belt", PilTra: "Glass Pillar", PowGenCha: "Turbo Mode", TouAsNai: "Tough as Nails" };
 
 			const configMap = { AIMax: "Max Threat AI", Agr: "Threat Aggression", Dor: "Door Overheat Scale Speed", Lap: "Laptop Consumption", Lght: "Light Power", Msk: "Mask Hit Points", MvR: "Run Speed", MvS: "Stamina", MvW: "Walk Speed", NDur: "Night Duration", PGen: "Power Generation", Pwr: "Power %", Rid: "Rid Timer Rate" };
 
@@ -517,8 +517,6 @@
 			createSection("Items", types.item, "item", (itemStr) => {
 				const [itemGame, amount] = itemStr.split("=");
 				let cleanedPenaltyKey = itemMap[itemGame] ? itemMap[itemGame].replace(/\s+/g, "") : null;
-				cleanedPenaltyKey = cleanedPenaltyKey === "VII-TheChariot" ? "7-TheChariot" : cleanedPenaltyKey;
-				cleanedPenaltyKey = cleanedPenaltyKey === "XX-Judgement" ? "20-Judgement" : cleanedPenaltyKey;
 				cleanedPenaltyKey = cleanedPenaltyKey === "MyownShadow" ? "MyOwnShadow" : cleanedPenaltyKey;
 				cleanedPenaltyKey = cleanedPenaltyKey === "ToughasNails" ? "ToughAsNails" : cleanedPenaltyKey;
 
@@ -526,6 +524,7 @@
 				if (cleanedPenaltyKey && itemGenericData[cleanedPenaltyKey]) imgSrc = itemGenericData[cleanedPenaltyKey].image;
 				else if (cleanedPenaltyKey && itemTarotData[cleanedPenaltyKey]) imgSrc = itemTarotData[cleanedPenaltyKey].image;
 				else if (cleanedPenaltyKey && itemSandboxData[cleanedPenaltyKey]) imgSrc = itemSandboxData[cleanedPenaltyKey].image;
+				console.log(`Item: ${itemGame}, Key: ${cleanedPenaltyKey}, Image: ${imgSrc}`);
 
 				return `
 					<div class="row-content">
