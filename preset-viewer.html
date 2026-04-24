@@ -320,29 +320,11 @@
 				else if (item.startsWith("C_")) types.config.push(item.slice("C_".length));
 			});
 
-			const threatMap = { BB: "Balloon Boy", BG: "Balloon Girl", Bab: "Baby", Bad: "Bad", Bal: "Ball", Bar: "Barry", BarFun: "Funsy Barry", BarNew: "New Barry", BarOld: "Old Barry", BarYel: "Yellow Barry", Bom: "Bomb", BroCat: "Broken Cat", BroChi: "Broken Chimp", Bun: "Bunny", BunNew: "New Bunny", BunOld: "Old Bunny", Cad: "Cadence", Cha: "Chains", Chi: "Chicken", ChiNew: "New Chicken", ChiOld: "Old Chicken", DesIII: "Destroyman III", Dry: "Dry", Fig: "Figure", Fox: "Fox", FoxFun: "Funsy Fox", FoxOld: "OldFox", Fra: "Fran", Gli: "Glitch", Hes: "Hesitation", Isr: "Isra", Jan: "Jan", Jaw: "Jaws", Jor: "Jordi \"Jumpscare\"", Kon: "Kono", Man: "Mango", Mar: "Mart", MikPik: "MikePike", MySha: "My Shadow", Noo: "Noob", Pil: "Pillar", Pot: "Pot0s", Pup: "Puppet", Rap: "Raptor", Rox: "Roxie", Rus: "Rush", Scr: "Screech", Str: "Strings", Tox: "Toxicity", VenErr: "Ventilation Errors", Voi: "Void", Wor: "Wormcave", ZGue: "ZGuesto", Zuf: "Zuffy", Hea: "Heat", JorDivPun: "Divine Punishment", JorGolGun: "Golden Gun", JorStr: "Stratosfear", JorWhi: "White" };
-
-			const penaltyMap = { DooSwa: "Crossed Wires", GenHidInf: "No Thoughts, Head Empty", ClaDooOve: "Classic Door Overheat", EquDis: "Equipment Disabler", PowGenOld: "Classic Holdable Generator", SolDis: "Solo Changes Disabler", PowGenDis: "Power Generator Disabler", BabVoi: "Voidbound Baby", BadBacDoo: "Smartest Bad Play", BadChaSig: "When I Feel Like It", BalBou: "Boulder", BalRep: "Beach Day", BalICBM: "ICBM", BalBal: "Balloons 4 Sale", BalIncWatTim: "Resilient Twins", BarFunSur: "Funsy Surprise", BarIncWatTim: "Stubborn Barry", BarNewBut: "Arcade Failsafe", BarOldWinExp: "Facial Recognition", BarPat: "Updated Pathfinding", BarSil: "Sneaky Bear", BarYelSil: "Silent Presence", BomMin: "Explosive Replacement", BomSub: "Subspacial Bomb", BroCatBreCam: "Static Stare", BroChiIgn: "Broken Chimp Ears", BunChiGoOthDoo: "Copycats", BunChiLonWatTim: "Haunting Duo", BunNewAnyCam: "On Tour", ChaSlo: "Shackled", ChiNewFooDec: "Chef 4 Hire", DesIIIBur: "Coral Headache", DryRepMat: "Math Class", FigIgn: "Not Listening", FoxOldLonTim: "Gold-Seeking Pirate", FoxOldShaHoo: "Sharp Hook", FoxRus: "Fox's Rushdown", FoxWeaLig: "Fox's Sabotage", FraRep: "Fran's Tenacity", GliDouEff: "ERROR 264", HesDouDam: "Do not Hesitate", IsrInvChi: "Chicken't", JanLonTim: "Heavy Cleaning Supplies", JawAlwSta: "Shark Teeth", JawSloLea: "Sharp Jaws", JorLonTim: "Jordi \"Door Camper\"", JorRep: "Jordi's Perseverance", KonDouSpa: "One More Konoling", KonInv: "Plushie-Camo", ManLonWatTim: "Persistent Mango", ManRepLas: "Certified Window Tapper", MarNil: "NIL", MikPikDorSpl: "Dormant Splinter", NooCap: "Party Noob", NooSloGai: "Noob Time!", OldLonTim: "Withered Robots", PilBel: "Bell", PilSqu: "Reduced Polygons Pillar", PotRepLas: "Toaster Vent", PupSloWinUp: "Rusty Crank", RapCamBre: "Raptor's Hiding Spot", RapLonTim: "Persistent Raptor", RoxLonTim: "Metal Fumo", RoxSne: "Sneak 100", RusA60: "A60", RusAmb: "Ambush", RusSil: "I'm Tip-Toein' Here", ScrFlyPes: "Flying Pest", StrLonTim: "Thicker Strings", StrWir: "Cut the Strings", VenErrLonFix: "Faulty Systems", VoiThiZon: "Voided", WorNoIco: "Wormcave's Deception", ZGueSilAndGue: "ZGuesto's Tactics", ZufFMNooLonWatTim: "Annoying Red", ZufReb: "Red Rebound", HeaStr: "Heatstroke", JorSha: "Jordi's Shadow", PupFSLasSta: "Her Last Stand", PupFSWir: "Marionette's Wires", PupFSAgg: "Puppet's Influence", PupFSLonWatTim: "Puppet's Stare", PupFSCamDis: "Snapped Signal", PupFSSanForOutBox: "[FS] Out of Box" };
-
-			const itemMap = { CarMag: "I - The Magician", CarEmp: "III - The Empress", CarCha: "VII - The Chariot", CarSta: "XVII - The Star", CarSun: "XIX - The Sun", CarJud: "XX - Judgement", DeaAdr: "Adrenaline", DeaHop: "Hope", DeaHun: "Hunger", DeaPow: "Powerless", DeaSelPre: "Self-Preservation", Dum: "Dumbell", EquBarHat: "Barry's Top Hat", EquBomFla: "Red Flag", EquCal: "Dry's Calculator", EquFigGlo: "Figure's Glowstick", EquFumSti: "Fumo Sticker", EquGif: "Giftbox", EquIsrChi: "Isra's Chicken", EquJorPai: "Jordi's Paint Brush", EquMySha: "My own Shadow", FloPot: "Flower Pot", LasRobSta: "Last Robloxian Standing", NinBel: "Ninja Belt", PilTra: "Glass Pillar", PowGenCha: "Turbo Mode", TouAsNai: "Tough as Nails" };
-
 			const configMap = { AIMax: "Max Threat AI", Agr: "Threat Aggression", Dor: "Door Overheat Scale Speed", Lap: "Laptop Consumption", Lght: "Light Power", Msk: "Mask Hit Points", MvR: "Run Speed", MvS: "Stamina", MvW: "Walk Speed", NDur: "Night Duration", PGen: "Power Generation", Pwr: "Power %", Rid: "Rid Timer Rate", Sng: "Custom Song ID" };
 
-			function getThreatNameAndKey(name) {
-				const fullName = threatMap[name] || name;
-				// Strip spaces and quotes out so the JSON image lookup still succeeds seamlessly
-				const key = fullName ? fullName.replace(/[\s"]/g, "") : threat;
-				return { fullName, key };
-			}
-
-			function getPenaltyNameAndKey(name) {
-				const fullName = penaltyMap[name] || name;
-				let key = fullName.replace(/\s+/g, "").replace(/"/g, "");
-				key = key === "DonotHesitate" ? "DoNotHesitate" : key;
-				key = key === "CuttheStrings" ? "CutTheStrings" : key;
-				key = key === "[FS]OutofBox" ? "[FS]OutOfBox" : key;
-
-				return { fullName, key };
+			function getFromData(key, data) {
+				const [fullName, object] = Object.entries(data).find(([name, object]) => object.key === key) || [key, null];
+				return { fullName, object };
 			}
 
 			types.threat.sort();
@@ -355,8 +337,8 @@
 
 			for (const t of types.threat) {
 				const [threat] = t.split("=");
-				const { fullName, key } = getThreatNameAndKey(threat);
-				if (threatSpecialData[key]) {
+				const { fullName, object } = getFromData(threat, threatSpecialData);
+				if (object) {
 					special.push(t);
 				} else {
 					generic.push(t);
@@ -371,9 +353,8 @@
 
 			for (const p of types.penalty) {
 				const [penalty] = p.split("=");
-				const { fullName, key } = getPenaltyNameAndKey(penalty);
-				console.log(key);
-				if (penaltySpecialData[key]) {
+				const { fullName, object } = getFromData(penalty, penaltySpecialData);
+				if (object) {
 					special.push(p);
 				} else {
 					generic.push(p);
@@ -418,9 +399,9 @@
 				const [threat, AI] = itemStr.split("=");
 				const aiVal = parseInt(AI, 10) || 0;
 
-				const { fullName, key } = getThreatNameAndKey(threat);
+				const { fullName, object } = getFromData(threat, threatGenericData);
 
-				const imgSrc = (threatGenericData[key] && threatGenericData[key].image) ? threatGenericData[key].image : fallbackImage;
+				const imgSrc = (object && object.image) ? object.image : fallbackImage;
 
 				const rawPercent = Math.min(100, Math.max(0, (aiVal / (maxAI || 1)) * 100));
 				const formattedPercent = numFormatter.format(rawPercent);
@@ -446,9 +427,9 @@
 				const [threat, AI] = itemStr.split("=");
 				const aiVal = parseInt(AI, 10) || 0;
 
-				const { fullName, key } = getThreatNameAndKey(threat);
+				const { fullName, object } = getFromData(threat, threatSpecialData);
 
-				const imgSrc = (threatSpecialData[key] && threatSpecialData[key].image) ? threatSpecialData[key].image : fallbackImage;
+				const imgSrc = (object && object.image) ? object.image : fallbackImage;
 
 				const rawPercent = Math.min(100, Math.max(0, (aiVal / (maxAI || 1)) * 100));
 				const formattedPercent = numFormatter.format(rawPercent);
@@ -473,12 +454,23 @@
 			createSection("Penalties", types.penalty, "penalty", (itemStr) => {
 				const [penalty, amount] = itemStr.split("=");
 
-				const { fullName, key } = getPenaltyNameAndKey(penalty);
+				let { fullName, object } = getFromData(penalty, penaltyGenericData);
 
 				let imgSrc = fallbackImage;
-				if (penaltyGenericData[key]) imgSrc = penaltyGenericData[key].image;
-				else if (penaltyThreatData[key]) imgSrc = penaltyThreatData[key].image;
-				else if (penaltySandboxData[key]) imgSrc = penaltySandboxData[key].image;
+				if (object) {
+					imgSrc = object.image;
+				} else {
+					({ fullName, object } = getFromData(penalty, penaltyThreatData));
+					if (object) {
+						console.log(fullName)
+						imgSrc = object.image;
+					} else {
+						({ fullName, object } = getFromData(penalty, penaltySandboxData));
+						if (object) {
+							imgSrc = object.image;
+						}
+					}
+				}
 
 				return `
 					<div class="row-content">
@@ -496,10 +488,10 @@
 			createSection("Special Penalties", types.specialPenalty, "penalty", (itemStr) => {
 				const [penalty, amount] = itemStr.split("=");
 
-				const { fullName, key } = getPenaltyNameAndKey(penalty);
+				const { fullName, object } = getFromData(penalty, penaltySpecialData);
 
 				let imgSrc = fallbackImage;
-				if (penaltySpecialData[key]) imgSrc = penaltySpecialData[key].image;
+				if (object) imgSrc = object.image;
 
 				return `
 					<div class="row-content">
@@ -516,15 +508,24 @@
 
 			createSection("Items", types.item, "item", (itemStr) => {
 				const [itemGame, amount] = itemStr.split("=");
-				let cleanedPenaltyKey = itemMap[itemGame] ? itemMap[itemGame].replace(/\s+/g, "") : null;
-				cleanedPenaltyKey = cleanedPenaltyKey === "MyownShadow" ? "MyOwnShadow" : cleanedPenaltyKey;
-				cleanedPenaltyKey = cleanedPenaltyKey === "ToughasNails" ? "ToughAsNails" : cleanedPenaltyKey;
+
+				let { fullName, object } = getFromData(itemGame, itemGenericData);
 
 				let imgSrc = fallbackImage;
-				if (cleanedPenaltyKey && itemGenericData[cleanedPenaltyKey]) imgSrc = itemGenericData[cleanedPenaltyKey].image;
-				else if (cleanedPenaltyKey && itemTarotData[cleanedPenaltyKey]) imgSrc = itemTarotData[cleanedPenaltyKey].image;
-				else if (cleanedPenaltyKey && itemSandboxData[cleanedPenaltyKey]) imgSrc = itemSandboxData[cleanedPenaltyKey].image;
-				console.log(`Item: ${itemGame}, Key: ${cleanedPenaltyKey}, Image: ${imgSrc}`);
+				if (object) {
+					imgSrc = object.image;
+				} else {
+					({ fullName, object } = getFromData(itemGame, itemTarotData));
+					if (object) {
+						console.log(fullName)
+						imgSrc = object.image;
+					} else {
+						({ fullName, object } = getFromData(itemGame, itemSandboxData));
+						if (object) {
+							imgSrc = object.image;
+						}
+					}
+				}
 
 				return `
 					<div class="row-content">
@@ -532,7 +533,7 @@
 							<img src="${imgSrc}" onerror="this.onerror=null; this.src=fallbackImage;">
 						</div>
 						<div class="item-info">
-							<div class="item-name">${itemMap[itemGame] || itemGame}</div>
+							<div class="item-name">${fullName}</div>
 						</div>
 						<div class="badge">x${amount}</div>
 					</div>

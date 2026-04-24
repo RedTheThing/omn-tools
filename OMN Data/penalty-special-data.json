@@ -1,10 +1,10 @@
 {
-	"Heatstroke":{"image":"https://static.wikitide.net/onemorenightwiki/b/bb/NewHeatIcon.png","cap":1},
-	"Jordi'sShadow":{"image":"https://static.wikitide.net/onemorenightwiki/6/67/Jordi%27sIcon.png","cap":1},
-	"HerLastStand":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1},
-	"Marionette'sWires":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1},
-	"Puppet'sInfluence":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1},
-	"Puppet'sStare":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":5},
-	"SnappedSignal":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1},
-	"[FS]OutOfBox":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1}
+	"Heatstroke":{"image":"https://static.wikitide.net/onemorenightwiki/b/bb/NewHeatIcon.png","cap":1, "key": "HeaStr"},
+	"Jordi's Shadow":{"image":"https://static.wikitide.net/onemorenightwiki/6/67/Jordi%27sIcon.png","cap":1, "key": "JorSha"},
+	"Puppet's Influence":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1, "key": "PupFSAgg"},
+	"Snapped Signal":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1, "key": "PupFSCamDis"},
+	"Her Last Stand":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1, "key": "PupFSLasSta"},
+	"Puppet's Stare":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":5, "key": "PupFSLonWatTim"},
+	"[FS] Out of Box":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1, "key": "PupFSSanForOutBox"},
+	"Marionette's Wires":{"image":"https://static.wikitide.net/onemorenightwiki/b/b9/Puppet%27sIcon.png","cap":1, "key": "PupFSWir"}
 }
